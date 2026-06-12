@@ -31,6 +31,11 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   const openModal = () => {
     window.dispatchEvent(new CustomEvent('open-custom-modal', {
       detail: { type: 'inquiry', section: 'Navbar Contact Button' }
@@ -82,24 +87,37 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile drawer */}
-      {menuOpen && (
-        <div className="nz-mobile-drawer">
-          <nav className="nz-mobile-nav">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nz-mobile-link"
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); setMenuOpen(false) }}
-              >
-                {item.label}
-              </a>
-            ))}
-            <button className="nz-mobile-cta" onClick={openModal}>Get In Touch</button>
-          </nav>
+      {/* Backdrop */}
+      <div
+        className={`nz-drawer-backdrop${menuOpen ? ' open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Right-side slide drawer */}
+      <aside className={`nz-mobile-drawer${menuOpen ? ' open' : ''}`}>
+        <div className="nz-drawer-header">
+          <img src="/nepzobg.png" alt="NEPZO" className="nz-drawer-logo" />
+          <button className="nz-drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <X size={20} />
+          </button>
         </div>
-      )}
+
+        <nav className="nz-mobile-nav">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="nz-mobile-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection(item.href); setMenuOpen(false) }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <button className="nz-mobile-cta" onClick={openModal}>Get In Touch</button>
+      </aside>
     </>
   )
 }

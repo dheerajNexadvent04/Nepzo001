@@ -94,8 +94,26 @@ export function NepzoPage() {
   const [financeSubTab, setFinanceSubTab] = useState('skills')
   const [entrepreneurSubTab, setEntrepreneurSubTab] = useState('skills')
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [reviewCount, setReviewCount] = useState(0)
+  const [courseCount, setCourseCount] = useState(0)
 
   useScrollReveal([activePillar, financeSubTab, entrepreneurSubTab])
+
+  useEffect(() => {
+    const duration = 1600
+    const start = performance.now()
+    const animate = (now) => {
+      const elapsed = now - start
+      const progress = Math.min(elapsed / duration, 1)
+      const ease = 1 - Math.pow(1 - progress, 3)
+      setReviewCount(Math.floor(ease * 100))
+      setCourseCount(Math.floor(ease * 5))
+      if (progress < 1) requestAnimationFrame(animate)
+      else { setReviewCount(100); setCourseCount(5) }
+    }
+    const raf = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(raf)
+  }, [])
 
   useEffect(() => {
     document.title = 'NEPZO | Future Ready Learning Program'
@@ -226,13 +244,13 @@ export function NepzoPage() {
             <div className="nz-counter-box">
               <div className="nz-counter-top">
                 <Star size={28} className="star-icon" />
-                <span className="nz-counter-val">100+</span>
+                <span className="nz-counter-val">{reviewCount}+</span>
               </div>
               <span className="nz-counter-lbl">Reviews</span>
             </div>
             <div className="nz-counter-box">
               <div className="nz-counter-top">
-                <span className="nz-counter-val">5+</span>
+                <span className="nz-counter-val">{courseCount}+</span>
               </div>
               <span className="nz-counter-lbl">Courses</span>
             </div>
@@ -423,6 +441,20 @@ export function NepzoPage() {
                   </div>
                 ))}
               </div>
+              <button
+                className="nz-carousel-nav nz-carousel-nav--prev"
+                onClick={() => setCurrentSlide(i => (i - 1 + nepzoSlides.length) % nepzoSlides.length)}
+                aria-label="Previous slide"
+              >
+                <ArrowRight size={18} style={{ transform: 'rotate(180deg)' }} />
+              </button>
+              <button
+                className="nz-carousel-nav nz-carousel-nav--next"
+                onClick={() => setCurrentSlide(i => (i + 1) % nepzoSlides.length)}
+                aria-label="Next slide"
+              >
+                <ArrowRight size={18} />
+              </button>
             </div>
             <div className="nz-slides-carousel-dots">
               {nepzoSlides.map((_, idx) => (

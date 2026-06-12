@@ -30,6 +30,10 @@
     width: 100%;
     padding: 0 20px;
   }
+
+  .nz-section-title {
+    font-size: 30px;
+  }
 }
 
 /* ==========================================================================
@@ -42,10 +46,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 640px;
-  max-height: 760px;
-  padding-top: 0px;
+  min-height: 724px;
+  padding-top: 71px;
   margin-bottom: 47px;
+  margin-top: 60px;
 }
 
 /* Glowing Ambient Orbs */
@@ -78,7 +82,7 @@
 .nz-hero-text-col {
   width: 52%;
   max-width: 700px;
-  padding: 0 60px 70px 80px;
+  padding: 0 60px 0px 80px;
   position: relative;
   z-index: 5;
   flex: 1;
@@ -90,7 +94,7 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 32px;
-  margin-top: 50px;
+  margin-top: 24px;
 }
 
 .nz-hero__partner-logo {
@@ -370,7 +374,7 @@
 
 .nz-hero-bottom {
   display: flex;
-  height: 130px;
+  height: 160px;
   flex-shrink: 0;
   position: relative;
   z-index: 15;
@@ -382,12 +386,11 @@
   flex: 0 0 38%;
   display: flex;
   gap: 48px;
-  align-items: flex-end;
-  padding: 0 30px 36px 80px;
+  align-items: center;
+  padding: 0 30px 32px 80px;
   color: white;
   position: relative;
   z-index: 5;
-  margin-bottom: 2rem;
 }
 
 .nz-counter-box {
@@ -422,6 +425,11 @@
   white-space: nowrap;
 }
 
+/* Indent "Reviews" label to align under the number (past star icon 28px + 10px gap) */
+.nz-counter-box:first-child .nz-counter-lbl {
+  padding-left: 38px;
+}
+
 /* Right: trust column with curve image as background */
 .nz-hero-trust-col {
   flex: 1;
@@ -430,7 +438,7 @@
   flex-direction: column;
   align-items: self-end;
   overflow: hidden;
-  justify-content: start;
+  justify-content: center;
 }
 
 /* Curve image fills the trust column */
@@ -526,7 +534,7 @@
 
 @media (max-width: 1024px) {
   .nz-premium-hero {
-    padding-top: 60px;
+    padding-top: 68px;
     max-height: none;
   }
   .nz-hero-text-col {
@@ -1404,10 +1412,14 @@
   display: none;
 }
 
+.nz-carousel-nav {
+  display: none;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .nz-slides-section {
-    padding: 30px 16px 45px;
+    padding: 30px 0 45px;
   }
   
   .nz-slides-desktop-grid {
@@ -1471,6 +1483,33 @@
     width: 20px;
     border-radius: 5px;
   }
+
+  .nz-carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.92);
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .nz-carousel-nav:active {
+    background: #f0f0f0;
+    transform: translateY(-50%) scale(0.94);
+  }
+
+  .nz-carousel-nav--prev { left: 10px; }
+  .nz-carousel-nav--next { right: 10px; }
 }
 
 /* Benefits for Schools Block */
@@ -1917,7 +1956,7 @@
 
 @media (max-width: 768px) {
   .nz-premium-hero {
-    padding-top: 29px;
+    padding-top: 68px;
     padding-bottom: 0px;
     background-image: url('/nepzomob2.png');
   }
@@ -2508,24 +2547,40 @@
   }
 
   .nz-locations-banner {
-    padding: 24px 16px;
+    padding: 28px 20px;
     margin-top: 36px;
     border-radius: 18px;
   }
 
   .nz-loc-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .nz-loc-pill {
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  /* Last pill (Gurgaon) spans both columns when count is odd */
+  .nz-loc-pill:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 55%;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .nz-loc-footnote {
     font-size: 12px;
     line-height: 1.5;
+    text-align: center;
   }
 }
 
