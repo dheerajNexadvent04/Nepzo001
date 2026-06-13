@@ -24,16 +24,14 @@ a { color: inherit; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(10, 8, 20, 0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .nz-navbar.scrolled {
-  background: rgba(8, 4, 0, 0.92);
+  background: #ffffff;
   border-bottom-color: rgba(232, 117, 10, 0.2);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 .nz-navbar-inner {
   max-width: 1260px;
@@ -57,7 +55,7 @@ a { color: inherit; }
   justify-content: center;
 }
 .nz-navbar-link {
-  color: rgba(255,255,255,0.85);
+  color: rgba(15, 15, 15, 0.75);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
@@ -67,7 +65,7 @@ a { color: inherit; }
   border-radius: 6px;
   transition: color 0.2s, background 0.2s;
 }
-.nz-navbar-link:hover { color: #fff; background: rgba(232,117,10,0.12); }
+.nz-navbar-link:hover { color: #E8750A; background: rgba(232,117,10,0.08); }
 .nz-navbar-actions {
   display: flex;
   align-items: center;
@@ -96,9 +94,9 @@ a { color: inherit; }
 .nz-navbar-toggle {
   display: none;
   background: none;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 8px;
-  color: #fff;
+  color: #1a1a1a;
   width: 38px;
   height: 38px;
   align-items: center;
@@ -130,14 +128,14 @@ a { color: inherit; }
   right: 0;
   bottom: 0;
   width: 280px;
-  background: #0c0800;
+  background: #ffffff;
   z-index: 1002;
   display: flex;
   flex-direction: column;
   padding: 0 0 32px;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.4);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
 }
 .nz-mobile-drawer.open {
@@ -149,19 +147,19 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   margin-bottom: 8px;
 }
 .nz-drawer-logo {
-  height: 32px;
+  height: 28px;
   width: auto;
   object-fit: contain;
 }
 .nz-drawer-close {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   border: none;
   border-radius: 8px;
-  color: #fff;
+  color: #1a1a1a;
   width: 34px;
   height: 34px;
   display: flex;
@@ -170,22 +168,22 @@ a { color: inherit; }
   cursor: pointer;
   transition: background 0.2s;
 }
-.nz-drawer-close:hover { background: rgba(255, 255, 255, 0.15); }
+.nz-drawer-close:hover { background: rgba(0, 0, 0, 0.1); }
 
 .nz-mobile-nav { display: flex; flex-direction: column; gap: 2px; padding: 0 12px; flex: 1; }
 .nz-mobile-link {
-  color: rgba(255,255,255,0.85);
+  color: rgba(15, 15, 15, 0.75);
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   padding: 14px 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 8px;
   transition: color 0.2s, background 0.2s;
 }
-.nz-mobile-link:hover { color: #E8750A; background: rgba(232,117,10,0.08); }
+.nz-mobile-link:hover { color: #E8750A; background: rgba(232,117,10,0.06); }
 .nz-mobile-cta {
   margin: 16px 12px 0;
   background: #E8750A;
@@ -205,6 +203,25 @@ a { color: inherit; }
   .nz-navbar-links, .nz-navbar-actions { display: none; }
   .nz-navbar-toggle { display: inline-flex; }
   .nz-drawer-backdrop { display: block; }
+
+  .nz-navbar {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .nz-navbar-inner {
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .nz-navbar-logo img {
+    height: 28px;
+  }
+
+  .nz-navbar-toggle {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
 }
 
 /* ── Footer ── */

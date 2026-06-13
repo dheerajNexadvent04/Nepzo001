@@ -101,11 +101,6 @@ export function UnifiedPopupModal() {
           <div className="collab-form-wrapper">
             <div className="collab-form-header">
               <h2>{formType === 'booking' ? 'Book Online Class' : 'Get In Touch / Collaborate'}</h2>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', lineHeight: '1.4' }}>
-                {formType === 'booking' 
-                  ? 'Sign up for a complimentary online chess session with our certified master coaches.' 
-                  : 'Partner with SckoolChess or make general inquiries about our program and centers.'}
-              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="collab-form">

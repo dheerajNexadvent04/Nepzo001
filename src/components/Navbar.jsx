@@ -5,7 +5,6 @@ const navItems = [
   { label: 'Home',        href: '#home' },
   { label: 'Programs',    href: '#programs' },
   { label: 'Pillars',     href: '#pillars' },
-  { label: 'Curriculum',  href: '#curriculum' },
   { label: 'Benefits',    href: '#benefits' },
   { label: 'Why Nepzo',   href: '#why-nepzo' },
 ]

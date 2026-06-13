@@ -19,6 +19,7 @@ export function NepzoFooter() {
 
         <div className="nz-footer-contact">
           <h4>Contact</h4>
+          <a href="tel:+919582135221">+91 9582135221</a>
           <a href="https://sckoolchess.com/contact-us" target="_blank" rel="noopener noreferrer">Contact SckoolChess</a>
           <a href="https://sckoolchess.com" target="_blank" rel="noopener noreferrer">Visit SckoolChess.com</a>
           <div className="nz-footer-socials">
